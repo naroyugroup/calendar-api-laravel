@@ -1,0 +1,388 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Calendar laravel",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/auth/google": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Google OAuth2 endpoint",
+                "operationId": "d4a0de0d39bfbe3d7abfed4903a393b7",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/auth/google/callback": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Google OAuth2 callback endpoint",
+                "operationId": "f570e4a90d228c788aaa0f98b1341332",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/auth/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Local register and return tokens",
+                "operationId": "4f26f0bb2c981c428a8abf8f0432a837",
+                "responses": {
+                    "201": {
+                        "description": "Access and refresh tokens"
+                    }
+                }
+            }
+        },
+        "/api/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Local login and return tokens",
+                "operationId": "0bf3a9518eb969a2f78d921c4cd2bac8",
+                "responses": {
+                    "201": {
+                        "description": "Access and refresh tokens"
+                    },
+                    "401": {
+                        "description": "Invalid credentials"
+                    }
+                }
+            }
+        },
+        "/api/auth/refresh": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Refresh and return tokens",
+                "operationId": "3bce4ab800d5a0a0340798bc40200ac9",
+                "responses": {
+                    "201": {
+                        "description": "Access and refresh tokens"
+                    }
+                }
+            }
+        },
+        "/api/auth/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Logout and delete tokens",
+                "operationId": "015940285cd227c678d4bf979b90261f",
+                "responses": {
+                    "201": {
+                        "description": "Access and refresh tokens"
+                    }
+                }
+            }
+        },
+        "/api/calendars": {
+            "post": {
+                "tags": [
+                    "Calendar"
+                ],
+                "summary": "Create calendar",
+                "operationId": "ccd20b944089e687e61c26896ab292a8",
+                "responses": {
+                    "201": {
+                        "description": "Calendar"
+                    }
+                }
+            }
+        },
+        "/api/calendars/{calendarId}": {
+            "get": {
+                "tags": [
+                    "Calendar"
+                ],
+                "summary": "Get calendar by id",
+                "description": "Member role is required",
+                "operationId": "995787aa923cc3e6549b4958b53b1a79",
+                "responses": {
+                    "200": {
+                        "description": "Calendar"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Calendar"
+                ],
+                "summary": "Update calendar by id",
+                "description": "Admin role is required",
+                "operationId": "c2da5ef963e2d4b2fb0bb6457bd6ef0b",
+                "responses": {
+                    "200": {
+                        "description": "Calendar"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Calendar"
+                ],
+                "summary": "Delete calendar by id",
+                "description": "Owner role is required",
+                "operationId": "d85a3e954130d2863acf1e7a9e49de9e",
+                "responses": {
+                    "200": {
+                        "description": "Calendar"
+                    }
+                }
+            }
+        },
+        "/api/calendars/all": {
+            "get": {
+                "tags": [
+                    "Calendar"
+                ],
+                "summary": "Get all available calendars",
+                "description": "Available means that user owns and participates in",
+                "operationId": "de3e5e871084f3e55d5f8b2805d1cc93",
+                "responses": {
+                    "200": {
+                        "description": "Calendar"
+                    }
+                }
+            }
+        },
+        "/api/calendars/{calendarId}/favorite": {
+            "put": {
+                "tags": [
+                    "Calendar"
+                ],
+                "summary": "Update calendar favorite status by id",
+                "description": "Member role is required",
+                "operationId": "2f10459df9ddf6f01a0426f72c99125c",
+                "responses": {
+                    "200": {
+                        "description": "Calendar"
+                    }
+                }
+            }
+        },
+        "/api/calendars/{calendarId}/events": {
+            "post": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "Create event",
+                "description": "Admin role is required",
+                "operationId": "254be6edb84b12be1648305d9ab2c818",
+                "responses": {
+                    "201": {
+                        "description": "Event"
+                    }
+                }
+            }
+        },
+        "/api/calendars/{calendarId}/events/{eventId}": {
+            "get": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "Get event by id",
+                "description": "Member role is required",
+                "operationId": "bf9f59b4f9a7c3e72f4aa6ca31c18188",
+                "responses": {
+                    "200": {
+                        "description": "Event"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "Update event by id",
+                "description": "Admin role is required",
+                "operationId": "7cf65f3aa2ec994fb09964bcf12f0dd7",
+                "responses": {
+                    "200": {
+                        "description": "Event"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "Delete event by id",
+                "description": "Admin role is required",
+                "operationId": "b5cd42c53feb2208850fe9fdf684680d",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/calendars/{calendarId}/events/range": {
+            "get": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "Get event by id",
+                "description": "Member role is required",
+                "operationId": "52b3f3e8e3e6fa26638351e1ce10081e",
+                "responses": {
+                    "200": {
+                        "description": "Events"
+                    }
+                }
+            }
+        },
+        "/api/{calendarId}/participants/list": {
+            "get": {
+                "tags": [
+                    "Calendar participant"
+                ],
+                "summary": "Get all calendar participants",
+                "description": "Member role is required",
+                "operationId": "7880be148b59913f5519ccae5d595236",
+                "responses": {
+                    "200": {
+                        "description": "Calendar participants"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Calendar participant"
+                ],
+                "summary": "Add calendar participants by email list",
+                "description": "Set each participant as member. Admin role is required",
+                "operationId": "4bc1d2cf4231c425f7ee237f8d4ba4d8",
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/{calendarId}/participants": {
+            "put": {
+                "tags": [
+                    "Calendar participant"
+                ],
+                "summary": "Update calendar participant role by email",
+                "description": "Owner role is required",
+                "operationId": "b608440a1fe931192c87ed1b1b98496e",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Calendar participant"
+                ],
+                "summary": "Remove calendar participant by email",
+                "description": "Owner role is required",
+                "operationId": "b58c0e7e6b07b6f545d335a317389bf7",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/resources/google/sync": {
+            "post": {
+                "tags": [
+                    "Google calendar"
+                ],
+                "summary": "Synchronize google calendar events and calendars",
+                "operationId": "00bf4c7fa8b4a9d0c1be1fb39c5d4120",
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/users/me/avatar": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Upload user image to S3 and set as picture field in user entity",
+                "operationId": "3cbb446b10dd28ed2a4dd5fd2a8cf373",
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/users/me": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get current user",
+                "operationId": "5989c76c4cb223632d306ef65e1cdbc1",
+                "responses": {
+                    "200": {
+                        "description": "User"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update current user",
+                "operationId": "fcdb3eaf7f1ab3aa7b3fe2218b05e321",
+                "responses": {
+                    "200": {
+                        "description": "User"
+                    }
+                }
+            }
+        },
+        "/api/users/me/password": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update current user password",
+                "operationId": "7c960d2b15af12bb5a89ea4203c69cb1",
+                "responses": {
+                    "200": {
+                        "description": "User"
+                    },
+                    "403": {
+                        "description": "Account is registered with google, cannot change password"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
